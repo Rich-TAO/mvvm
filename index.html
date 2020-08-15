@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue</title>
+</head>
+<body>
+    <div id="app">
+        <h2>{{title}}</h2>
+        <div>{{person.name}} --- {{ person.age }}</div>
+        <p>{{msg}}</p>
+        <div v-text="msg"></div>
+        <input type="text" v-model="msg">
+        <ul>
+            <li v-html="msg">1</li>
+            <li :name="msg">2</li>
+            <li>3</li>
+        </ul>
+        <button @click="onClick">dianj</button>
+    </div>
+    <script src="./src/Observe.js"></script>
+    <script src="./src/compile.js"></script>
+    <script src="./src/vue.js"></script>
+    <script>
+        let vm = new Vue({
+            el:'#app',
+            data(){
+                return {
+                    title:'手写vue',
+                    person:{
+                        name:'tyq',
+                        age:18
+                    },
+                    obj:[{
+                        p:{
+                            a:'obj-p-a'
+                        }
+                    }],
+                    msg:"学习mvvm"
+                }
+            },
+            methods: {
+                onClick(){
+                    console.log(this)
+                    this.person = {
+                        name:'改变name',
+                        age:'129'
+                    }
+                    this.msg ='msg'
+                }
+            }
+        })
+    </script>
+</body>
+</html>
