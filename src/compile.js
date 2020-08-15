@@ -8,8 +8,14 @@ const compileUtil = {
     },
     setVal(expr,vm,inputVal){
         const exprArr = expr.split('.')
+        console.log(exprArr)
+        let i = 0
         return exprArr.reduce((data, currentVal) => {
-             data[currentVal] = inputVal
+            if(exprArr.length - 1 === i){
+                data[currentVal] = inputVal
+            }
+            i++
+            return data[currentVal]
         }, vm.$data)
     },
     getContent(expr, vm) {

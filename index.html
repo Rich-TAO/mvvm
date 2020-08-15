@@ -11,7 +11,7 @@
         <div>{{person.name}} --- {{ person.age }}</div>
         <p>{{msg}}</p>
         <div v-text="msg"></div>
-        <input type="text" v-model="msg">
+        <input type="text" v-model="person.name">
         <ul>
             <li v-html="msg">1</li>
             <li :name="msg">2</li>
